@@ -1,0 +1,28 @@
+<h2>Create Quiz</h2>
+<form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Quiz Title:</label>
+    <input id="title" formControlName="title" />
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+  </div>
+  <div formArrayName="questions">
+    <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i">
+      <div>
+        <label for="questionText">Question Text:</label>
+        <input id="questionText" formControlName="questionText" />
+      </div>
+      <div formArrayName="options">
+        <div *ngFor="let option of getOptions(i).controls; let j = index">
+          <label for="option{{j}}">Option {{j + 1}}:</label>
+          <input [id]="'option' + j" [formControlName]="j" />
+        </div>
+        <button type="button" (click)="addOption(i)">Add Option</button>
+      </div>
+    </div>
+    <button type="button" (click)="addQuestion()">Add Question</button>
+  </div>
+  <button type="submit">Save Quiz</button>
+</form>

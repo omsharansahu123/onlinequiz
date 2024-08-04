@@ -1,0 +1,12 @@
+<header>
+  <h1>{{ title }}</h1>
+  <nav>
+    <a *ngIf="!user?.isLoggedIn" routerLink="/login">Login</a> 
+    <a *ngIf="user?.isLoggedIn" routerLink="/login">LogOut</a> | 
+
+    <a *ngIf="!user?.isLoggedIn" routerLink="/signup">Sign Up |</a> 
+    <a routerLink="/quizzes">Quizzes</a> |
+    <a routerLink="/profile">Profile</a>
+  </nav>
+</header>
+<router-outlet></router-outlet>

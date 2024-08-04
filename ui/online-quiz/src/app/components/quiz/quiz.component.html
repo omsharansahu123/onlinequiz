@@ -1,0 +1,12 @@
+<h2>Quiz</h2>
+<div *ngIf="questions.length">
+  <div>
+    <p>{{currentQuestionIndex+1}}. {{ questions[currentQuestionIndex]?.title }}</p>
+    <div *ngFor="let option of questions[currentQuestionIndex].options; let i = index">
+      <input type="radio" [value]="option" [(ngModel)]="selectedOption[index]" /> {{ option.optionText }}
+    </div>
+  </div>
+  <button (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">Previous</button>
+  <button *ngIf="currentQuestionIndex!=questions.length-1" (click)="submitAnswer(0)">Next</button>
+  <button *ngIf="currentQuestionIndex==questions.length-1" (click)="submitAnswer(1)">Submit</button>
+</div>

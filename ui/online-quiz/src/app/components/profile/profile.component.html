@@ -1,0 +1,8 @@
+<h2>My Profile</h2>
+<h3>Quiz History</h3>
+<ul>
+  <li *ngFor="let quiz of quizHistory">
+    {{ quiz.title }} - Score: {{ quiz.score }}% - Date: {{ quiz.date }}
+  </li>
+</ul>
+<a routerLink="/quizzes">Take Another Quiz</a>

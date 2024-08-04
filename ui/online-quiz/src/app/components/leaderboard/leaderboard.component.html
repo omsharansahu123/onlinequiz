@@ -1,0 +1,7 @@
+<h2>Leaderboard</h2>
+<ul>
+  <li *ngFor="let scorer of topScorers">
+    {{ scorer.username }} - Score: {{ scorer.score }}
+  </li>
+</ul>
+<a routerLink="/quizzes">Take Another Quiz</a>
